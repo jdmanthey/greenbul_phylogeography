@@ -17,7 +17,7 @@ workdir=/lustre/scratch/jmanthey/greenbul_redo
 region_array=$( head -n${SLURM_ARRAY_TASK_ID} ${workdir}/vcfs.txt | tail -n1 )
 
 # filter for structure (minimum 45/49 individuals to keep a site)
-vcftools --vcf ${workdir}/04_vcf/${region_array}.vcf --keep ingroup.txt \
+vcftools --vcf ${workdir}/04_vcf/${region_array} --keep ingroup.txt \
 --max-missing 0.9 --mac 2 --max-alleles 2 --max-maf 0.49 --recode \
 --recode-INFO-all --out ${workdir}/05_pca/structure45_${SLURM_ARRAY_TASK_ID}
 
